@@ -16,6 +16,10 @@ export const Prueba2 = () => {
     camera.position.z = 0.01;
 
     scene = new THREE.Scene();
+    const geometry = new THREE.BoxGeometry(10, 15, 0.01);
+    const material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
 
     const texture = new THREE.TextureLoader().load(
       "https://threejs.org/examples/textures/2294472375_24a3b8ef46_o.jpg",
@@ -25,9 +29,13 @@ export const Prueba2 = () => {
 
     scene.background = texture;
 
+
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(container.current.clientWidth, container.current.clientHeight);
+    renderer.setSize(
+      container.current.clientWidth,
+      container.current.clientHeight
+    );
     container.current.appendChild(renderer.domElement);
 
     //
@@ -38,10 +46,14 @@ export const Prueba2 = () => {
     controls.addEventListener("change", render);
 
     function onWindowResize() {
-      camera.aspect = container.current.clientWidth / container.current.clientHeight;
+      camera.aspect =
+        container.current.clientWidth / container.current.clientHeight;
       camera.updateProjectionMatrix();
 
-      renderer.setSize(container.current.clientWidth, container.current.clientHeight);
+      renderer.setSize(
+        container.current.clientWidth,
+        container.current.clientHeight
+      );
     }
 
     function render() {

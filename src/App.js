@@ -1,13 +1,17 @@
-import './App.css';
-// import { Prueba1 } from './components/Prueba1';
-import { Prueba2 } from './components/Prueba2';
-
+import "./App.css";
+import {Navbar} from "./components/Navbar";
+import { AppRouter } from "./Router/AppRouter";
 function App() {
   return (
-    <div className="App grid h-screen grid-rows-2" id="general">
-      <Prueba2 />
-      <div className="bg-blue-500"></div>
-    </div>
+    <>
+      <div
+        className="App grid h-screen"
+        style={{ gridTemplateColumns: "20% 80%" }}
+      >
+        <Navbar />
+        <AppRouter />
+      </div>
+    </>
   );
 }
 
